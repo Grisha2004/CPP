@@ -8,7 +8,7 @@ using namespace ege17_1;
 
 int main()
 {
-	ege24::task27421();
+	ege24::task27689();
 
 	return 0;
 }

@@ -30,3 +30,34 @@ void ege24::task27421()
 	fin.close();
 	cout << max;
 }
+
+void ege24::task27689()
+{
+	string s = "xyzxyzyxyzzzxyxyxyzxyzxyzx";
+	int length = 0;
+	int maxlength = 0;
+
+	for (int i = 0; i < s.length(); ++i)
+	{
+		if (s[i] == 'x' && s[i + 1] == 'y' && s[i + 2] == 'z')
+		{
+			length += 3;
+			if (length > maxlength) maxlength = length;
+			if (i < s.length() - 2) i += 2;
+		}
+		else if (length != 0) {
+			{
+				if (s[i] == 'x')
+				{
+					++length;
+					if (i + 1 <= s.length() && s[i + 1] == 'y')
+						++length;
+					if (i < s.length() - 1) i += 1;
+				}
+				if (length > maxlength) maxlength = length;
+				length = 0;
+			}
+		}
+	}
+	cout << maxlength;
+}
