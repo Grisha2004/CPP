@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ void ege24::task27421()
 
 void ege24::task27689()
 {
-	string s = "xyzxyzyxyzzzxyxyxyzxyzxyzx";
+	string s = "xyz";
 	int length = 0;
 	int maxlength = 0;
 
@@ -62,4 +63,44 @@ void ege24::task27689()
 		}
 	}
 	cout << maxlength;
+}
+
+void ege24::task27422()
+{
+	for (int number = 174457; number <= 174505; ++number)
+	{
+		int dividers[2];
+		int amountOfDividers = 0;
+		for (int divider = 2; divider < number / 2; ++divider)
+		{
+			if (number % divider == 0)
+			{
+				++amountOfDividers;
+				if (amountOfDividers == 1)
+				{
+					dividers[0] = divider;
+				}
+				dividers[1] = divider;
+			}
+		}
+		if (amountOfDividers == 2)
+		{
+			cout << dividers[1] << " " << dividers[0] << endl;
+		}
+	}
+}
+void ege24::task27850()
+{
+	for (int number = 245690; number <= 245756; ++number)
+	{
+		int amountOfDeviders = 0;
+		for (int devider = 2; devider < number / 2; ++devider)
+		{
+			if (number % devider == 0)
+				++amountOfDeviders;
+		}
+		if (amountOfDeviders == 0) {
+			cout << number - 245689 << " " << number << endl;
+		}
+	}
 }

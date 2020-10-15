@@ -142,10 +142,12 @@
     <ClCompile Include="ege17.cpp" />
     <ClCompile Include="ege24.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ege26.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="combinatorics.h" />
     <ClInclude Include="ege24.h" />
+    <ClInclude Include="ege26.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ege17.h" />

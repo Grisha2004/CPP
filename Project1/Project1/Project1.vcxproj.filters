@@ -27,12 +27,18 @@
     <ClCompile Include="ege17.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ege26.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="combinatorics.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ege24.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ege26.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
