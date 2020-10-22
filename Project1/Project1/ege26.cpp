@@ -48,7 +48,13 @@ void ege26::task27423()
 			break;
 		}
 	}
+	if (members == 0)
+	{
+		cout << amount << " "<< sizeOfFiles[amount - 1];
+		return;
+	}
 	int maxfile = 0;
+
 	for (int i = members; i < amount; ++i)
 	{
 		if (sum - sizeOfFiles[members - 1] + sizeOfFiles[i] <= space)
@@ -58,6 +64,7 @@ void ege26::task27423()
 		}
 	}
 	cout << members << " " << sizeOfFiles[maxfile];
+	
 
 	delete[] sizeOfFiles;
 }
