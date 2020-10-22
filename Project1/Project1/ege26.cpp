@@ -15,9 +15,13 @@ void sort(int *array, int const size)
 			if (array[j] > array[j + 1])
 			{
 				swap(array[j], array[j + 1]);
-			}
+			}			
 		}
+		
 	}
+	for (int i = 0; i < size; ++i)
+		cout << array[i] << " ";
+	cout << endl;
 }
 
 void ege26::task27423()
@@ -44,7 +48,16 @@ void ege26::task27423()
 			break;
 		}
 	}
-	cout << members << " " << sizeOfFiles[members];
+	int maxfile = 0;
+	for (int i = members; i < amount; ++i)
+	{
+		if (sum - sizeOfFiles[members - 1] + sizeOfFiles[i] <= space)
+		{
+			sum = sum - sizeOfFiles[members] + sizeOfFiles[i];
+			maxfile = i;
+		}
+	}
+	cout << members << " " << sizeOfFiles[maxfile];
 
 	delete[] sizeOfFiles;
 }
