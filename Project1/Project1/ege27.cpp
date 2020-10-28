@@ -87,13 +87,12 @@ void ege27::task27986()
 	int amount = 0;
 	int n7 = 0;
 	int n0 = 0;
-	fin >> amount;
 	while (!fin.eof())
 	{
 		int n = 0;
 		fin >> n;
 		if (n % 49 !=0 && n % 7 == 0 && n > n7)
-		{
+		{	
 			n7 = n;
 		}
 		if (n % 7 != 0 && n > n0)
@@ -108,5 +107,6 @@ void ege27::task27986()
 		cout << max;
 		return;
 	}
+
 	cout << 1;
 }
