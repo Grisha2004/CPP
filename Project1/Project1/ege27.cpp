@@ -16,7 +16,14 @@ int max(int n, int k)
 	else max = k;
 	return(max);
 }
-
+bool maximum(int num1, int num2)
+{
+	if (num1 > num2)
+	{
+		return 1;
+	}
+	return 0;
+}
 void ege27::task27891()
 {
 	ifstream fin("27-A_2.txt");
@@ -109,4 +116,139 @@ void ege27::task27986()
 	}
 
 	cout << 1;
+}
+void ege27::task27989()
+{
+	int n2 = 0;
+	int n13 = 0;
+	int n26 = 0;
+	int n0 = 0;
+	int amount = 0;
+	cin >> amount;
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		if (num % 26 == 0)
+		{
+			n26 += 1;
+		}
+		else if (num % 2 == 0)
+		{
+			n2 += 1;
+		}
+		else if (num % 13 == 0)
+		{
+			n13 += 1;
+		}
+		else
+		{
+			n0 += 1;
+		}
+	}
+	cout << n2 * n13 + n26 * (n0 + n13 + n2) + ((n26 * (n26 - 1)) / 2);
+}
+void ege27::task27991()
+{
+	int amount = 0;
+	cin >> amount;
+	int chetn = 0;
+	int chetn171 = 0;
+	int chetn172 = 0;
+	int nechetn = 0;
+	int nechetn171 = 0;
+	int nechetn172 = 0;
+	for (int i = 0; i < amount; ++i)
+	{
+		int num;
+		cin >> num;
+
+		if (num % 2 == 0 && num % 17 == 0) 
+		{
+			if (num > chetn172 && num <= chetn171)
+			{
+				chetn172 = num;
+			}
+
+			if (num > chetn171)
+			{
+				chetn171 = num;
+			}
+		}
+
+		if (num % 2 == 0 && num % 17 != 0 && num > chetn)
+		{
+			chetn = num;
+		}
+
+		if (num % 17 == 0 && num % 2 != 0)
+		{
+			if (num > nechetn172 && num <= nechetn171)
+			{
+				nechetn172 = num;
+			}
+
+			if (num > nechetn171)
+			{
+				nechetn171 = num;
+			}
+		}
+
+		if(num % 2 != 0 && num % 17 != 0 && num > nechetn)
+		{
+			nechetn = num;
+		}
+	}
+	
+	int max[4] = {0, 0, 0, 0};
+
+	if (chetn171 != 0 && chetn172 != 0)
+	{
+		max[0] = chetn171 + chetn172;
+	}
+
+	if (chetn171 != 0 && chetn != 0)
+	{
+		max[1] = chetn171 + chetn;
+	}
+
+	if (nechetn171 != 0 && nechetn172 != 0)
+	{
+		max[2] = nechetn171 + nechetn172;
+	}
+
+	if (nechetn171 != 0 && nechetn != 0)
+	{
+		max[3] = nechetn171 + nechetn;
+	}
+
+	int maxSum = 0;
+	int maxIndex = -1;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (max[i] > maxSum)
+		{
+			maxSum = max[i];
+			maxIndex = i;
+		}
+	}
+
+	switch (maxIndex)
+	{
+	case 0:
+		cout << chetn171 << " " << chetn172;
+		break;
+	case 1:
+		cout << chetn171 << " " << chetn;
+		break;
+	case 2: 
+		cout << nechetn171 << " " << nechetn172;
+		break;
+	case 3:
+		cout << nechetn171 << " " << nechetn;
+		break;
+	default:
+		cout << "0 0";
+		break;
+	}
 }

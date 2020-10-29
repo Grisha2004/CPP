@@ -10,7 +10,7 @@ using namespace ege27;
 
 int main()
 {
-	ege27::task27986();
+	ege27::task27991();
 
 	return 0;
 }
