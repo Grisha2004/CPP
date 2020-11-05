@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int max(int n, int k)
+int maxim(int n, int k)
 {
 	int max;
 	if (n > k)
@@ -15,14 +15,6 @@ int max(int n, int k)
 	}
 	else max = k;
 	return(max);
-}
-bool maximum(int num1, int num2)
-{
-	if (num1 > num2)
-	{
-		return 1;
-	}
-	return 0;
 }
 void ege27::task27891()
 {
@@ -280,4 +272,71 @@ void ege27::task28128()
 	int max2 = n1 + n2;
 	if (max1 > max2) cout << max1;
 	else cout << max2;
+}
+void ege27::task28129()
+{
+	int amount = 0;
+	cin >> amount;
+	int a[160], b[160];
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		int r = num % 160;
+		if (num % 7 == 0 && num > a[r])
+		{
+			a[i] = num;
+		}
+		else if (b[r] < num)
+		{
+			b[r] = num;
+		}
+	}
+	int maxa1 = 0, maxa2 = 0, maxb1 = 0, maxb2 = 0;
+	int max[5][2];
+	for (int i = 0; i < 160; ++i)
+	{
+		if (a[i] > maxa1)
+		{
+			maxa2 = maxa1;
+			maxa1 = a[i];
+		}
+		else if (a[i] > maxa2)
+		{
+			maxa2 = a[i];
+		}
+	
+		if (b[i] > maxb1)
+		{
+			maxb2 = maxb1;
+			maxb1 = b[i];
+
+		}
+		else if (b[i] > maxb2)
+		{
+			maxb2 = b[i];
+		}
+	}
+	cout << maxa1 << " " << maxa2 << " " << maxb1 <<" " << maxb2 << endl;
+	max[0][0] = maxa1;
+	max[0][1] = maxa2;
+	max[1][1] = maxb1;
+	max[1][0] = maxa1;
+	max[2][0] = maxa2;
+	max[2][1] = maxb1;
+	max[3][0] = maxa1;
+	max[3][1] = maxb2;
+	max[4][1] = maxb2;
+	max[4][0] = maxa2;
+ 	int k = 0, maxSum = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		cout << max[i][0] << " " << max[i][1] << endl;
+		if (max[i][0] + max[i][1] > maxSum && max[i][0] % 160 != max[i][1] % 160)
+		{
+			k = i;
+			maxSum = max[i][0] + max[i][1];
+		}
+	}
+	cout << max[k][0] << " " << max[k][1];
 }
