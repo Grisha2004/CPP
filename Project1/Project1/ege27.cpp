@@ -252,3 +252,32 @@ void ege27::task27991()
 		break;
 	}
 }
+void ege27::task28128()
+{
+	int amount = 0;
+	cin >> amount;
+	int n31 = 0, n32 = 0, n1 = 0, n2 = 0;
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		if (num % 3 == 0)
+		{
+			if (num > n31)
+			{
+				n32 = n31;
+				n31 = num;
+			}
+			else if (num > n32)
+			{
+				n32 = num;
+			}
+		}
+		if (num % 3 == 1 && num > n1) n1 = num;
+		else if (num % 3 == 2 && num > n2) n2 = num;
+	}
+	int max1 = n31 + n32;
+	int max2 = n1 + n2;
+	if (max1 > max2) cout << max1;
+	else cout << max2;
+}
