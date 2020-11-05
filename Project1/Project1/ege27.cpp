@@ -16,6 +16,109 @@ int maxim(int n, int k)
 	else max = k;
 	return(max);
 }
+void greetingFromEge()
+{
+	fstream fout("test.txt");
+	int const d = 160;
+	int const p = 7;
+	int firstMax7 = 0;
+	int secondMax7 = 0;
+	int firstMax0 = 0;
+	int secondMax0 = 0;
+	int n = 0;
+	int num = 0;
+
+	fout >> n;
+	//cin » n;
+
+	for (int i = 0; i < n; ++i)
+	{
+		//cin » num;
+		fout >> num;
+		if (num % p == 0)
+		{
+			if (num > firstMax7 && num % d != firstMax7 % d)
+			{
+				secondMax7 = firstMax7;
+				firstMax7 = num;
+				continue;
+			}
+
+			if (num > firstMax7 && num % d == firstMax7 % d)
+			{
+				firstMax7 = num;
+				continue;
+			}
+
+			if (num > secondMax7 && num % d != firstMax7 % d)
+			{
+				secondMax7 = num;
+				continue;
+			}
+		}
+		else
+		{
+			if (num > firstMax0 && num % d != firstMax0 % d)
+			{
+				secondMax0 = firstMax0;
+				firstMax0 = num;
+				continue;
+			}
+
+			if (num > firstMax0 && num % d == firstMax0 % d)
+			{
+				firstMax0 = num;
+				continue;
+			}
+
+			if (num > secondMax0 && num % d != firstMax0 % d)
+			{
+				secondMax0 = num;
+				continue;
+			}
+		}
+	}
+
+	int s1 = firstMax7 + secondMax7;
+	int s2 = firstMax7 % d != firstMax0 % d ? firstMax7 + firstMax0 : 0;
+	int s3 = firstMax7 % d != secondMax0 % d ? firstMax7 + secondMax0 : 0;
+	int s4 = secondMax7 % d != firstMax0 % d ? secondMax7 + firstMax0 : 0;
+	int s5 = secondMax7 % d != secondMax0 % d ? secondMax7 + secondMax0 : 0;
+
+	int max = maxim(maxim(maxim(maxim(s1, s2), s3), s4), s5);
+
+	if (max == s1)
+	{
+		cout << firstMax7 << " " << secondMax7;
+		return;
+	}
+
+	if (max == s2)
+	{
+		cout << firstMax7 << " " << firstMax0;
+		return;
+	}
+
+	if (max == s3)
+	{
+		cout << firstMax7 << " " << secondMax0;
+		return;
+	}
+
+	if (max == s4)
+	{
+		cout << secondMax7 << " " << firstMax0;
+		return;
+	}
+
+	if (max == s5)
+	{
+		cout << secondMax7 << " " << secondMax0;
+		return;
+	}
+
+	return;
+}
 void ege27::task27891()
 {
 	ifstream fin("27-A_2.txt");
