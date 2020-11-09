@@ -144,12 +144,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ege26.cpp" />
     <ClCompile Include="ege27.cpp" />
+    <ClCompile Include="olimp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="combinatorics.h" />
     <ClInclude Include="ege24.h" />
     <ClInclude Include="ege26.h" />
     <ClInclude Include="ege27.h" />
+    <ClInclude Include="olimp.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ege17.h" />

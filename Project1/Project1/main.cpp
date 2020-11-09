@@ -4,13 +4,15 @@
 #include "ege24.h"
 #include "ege26.h"
 #include "ege27.h"
+#include "olimp.h"
 
 using namespace std;
 using namespace ege27;
+using namespace olimp;
 
 int main()
 {
-	ege27::task28129();
-
+	
+	olimp::zA();
 	return 0;
 }
