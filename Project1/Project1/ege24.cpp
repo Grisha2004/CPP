@@ -33,7 +33,16 @@ void ege24::task27421()
 	fin.close();
 	cout << max;
 }
+void ege24::task27689string()
+{
+	fstream fin("z5.txt");
+	char symbol = '\0';
+	string s;
+	while (!fin.eof())
+	{
 
+	}
+}
 void ege24::task27689()
 {
 	string s = "xyz";
