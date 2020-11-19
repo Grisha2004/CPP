@@ -514,3 +514,114 @@ void ege27::task28131()
 	}
 	cout << L << ' ' << R;
 }
+void ege27::task18096()
+{
+	int amount = 0;
+	cin >> amount;
+	int n2 = 0, n62 = 0, n31 = 0, n0 = 0;
+	++amount;
+	while (--amount)
+	{
+		int num = 0;
+		cin >> num;
+		if (num % 62 == 0)
+			n62 += 1;
+		else if (num % 31 == 0)
+			n31 += 1;
+		else if (num % 2 == 0)
+			n2 += 1;
+		else
+			n0 += 1;
+	}
+	cout << (n0 * n62) + (n62 * (n62 - 1) / 2) + (n31 * n2) + (n62 * n31) + (n62 * n2);
+}
+void ege27::task25963()
+{
+	int amount = 0;
+	cin >> amount;
+	int n192 = 0;
+	int m192 = 0;
+	int n19 = 0;
+	int m19 = 0;
+	int n0 = 0;
+	int n2 = 0;
+	for (int i = 0; i < amount; ++i)
+	{
+		int num;
+		cin >> num;
+		if (num % 19 == 0)
+		{
+			if (num % 2 == 0 && num > n192)
+			{
+				if (num > m192)
+				{
+					n192 = m192;
+					m192 = num;
+				}
+				else
+					n192 = num;
+			}
+			else if (num % 19 == 0 && num > n19)
+			{
+				if (num > m19)
+				{
+					n19 = m19;
+					m19 = num;
+				}
+				else 
+					n19 = num;
+			}
+		}
+		else
+		{
+			if (num % 2 == 0 && num > n2)
+				n2 = num;
+			else if (num % 2 != 0 && num > n0)
+				n0 = num;
+		}
+	}
+	int a[4] = { m192, m192, m19, m19 };
+	int b[4] = {n192, n2, m19, n0};
+	int maxSum = 0;
+	int maxInd = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		int sum = a[i] + b[i];
+		if (sum > maxSum && a[i] != 0 && b[i] != 0)
+		{
+			maxSum = sum;
+			maxInd = i;
+		}
+	}
+	if (maxSum != 0)
+		cout << a[maxInd] << " "<< b[maxInd];
+	else cout << "0  0";
+}
+void ege27::task15812()
+{
+	int amount;
+	cin >> amount;
+	int n23 = 0;
+	int n2 = 0;
+	int n0 = 0;
+	int n3 = 0;
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		if (num % 2 == 0)
+		{
+			if (num % 3 == 0 && num > n23)
+				n23 = num;
+			if (num % 3 != 0 && num > n2)
+				n2 = num;
+		}
+		else
+		{
+			if (num % 3 == 0 && num > n3)
+				n3 = num;
+			if (num % 3 != 0 && num > n0)
+				n0 = num;
+		}
+	}
+	int a[] = 
+}

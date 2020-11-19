@@ -37,11 +37,46 @@ void ege24::task27689string()
 {
 	fstream fin("z5.txt");
 	char symbol = '\0';
-	string s;
+	int position = 0;
+	int currentLength = 0;
+	int maxLength = 0;
+
 	while (!fin.eof())
 	{
+		fin >> symbol;
 
+		if (symbol == 'X' && position == 0)
+		{
+			++position;
+			++currentLength;
+		}
+		else if (symbol == 'Y' && position == 1)
+		{
+			++position;
+			++currentLength;
+		}
+		else if (symbol == 'Z' && position == 2)
+		{
+			position = 0;
+			++currentLength;
+		}
+		else
+		{
+			if (currentLength > maxLength)
+			{
+				maxLength = currentLength;
+			}
+
+			position = 0;
+			currentLength = 0;
+		}
 	}
+
+	if (currentLength > maxLength)
+	{
+		maxLength = currentLength;
+	}
+	cout << maxLength;
 }
 void ege24::task27689()
 {
