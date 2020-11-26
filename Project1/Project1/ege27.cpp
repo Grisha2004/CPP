@@ -628,3 +628,124 @@ void ege27::task15812()
 	sum = n23 * (n23 - 1) / 2 + n23 * n0 + n23 * n3 + n2 * n0;
 	cout << sum;
 }
+void ege27::task14788()
+{
+	int amount = 0;
+	cin >> amount;
+	int a[9];
+	for (int i = 0; i < 9; ++i)
+	{
+		a[i] = 0;
+	}
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		int r = num % 9;
+		a[r] += 1;
+	}
+	int sum = 0;
+	for (int i = 1; i <= 9 / 2; ++i)
+	{
+		sum += a[i] * a[9-i];
+	}
+	sum += a[0] * (a[0] - 1) / 2;
+	cout << sum;
+}
+void ege27::task18806()
+{
+	int amount = 0;
+	cin >> amount;
+	int a[120];
+	for (int i = 0; i < amount; i++)
+	{
+		a[i] = 0;
+	}
+	int maxSum = 0;
+	int L = 0;
+	int index = 0;
+	for (int i = 0; i < amount; ++i)
+	{
+		int n;
+		cin >> n;
+		int r = n % 120;
+		int sum = a[120 - r] + n;
+		if (r == 0)
+		{
+			if (n < a[0] && sum > maxSum)
+			{
+				maxSum = a[0] + n;
+				if (a[0] < n) a[0] = n;
+				index = 0;
+			}
+		}
+		else if (n < a[(120 - r)%120] && sum > maxSum)
+		{
+			
+			maxSum = sum;
+			index = r;
+		}
+		if (n > a[r]) 
+			a[r] = n;
+	}
+	if(a[index] != 0 && a[index - 120] != 0)
+		cout << a[index] << " "<< a[120 - index];
+}
+void ege27::task29134() 
+{
+	int amount = 0;
+	cin >> amount;
+	int a[60];
+	int n0 = 0 ;
+	int n30 = 0;
+	for (int i = 0; i < 60; ++i)
+	{
+		a[i] = 0;
+	}
+	for (int i = 0; i < amount; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		int r = num % 60;
+		if (r == 0 && num > n0)
+		{
+			if (a[0] < num)
+			{
+				n0 = a[0];
+				a[0] = num;
+			}
+			else
+				n0 = num;
+		}
+		else if( r == 30 && num > n30)
+		{
+			if (a[30] < num)
+			{
+				n30 = a[30];
+				a[30] = num;
+			}
+			else
+				n30 = num;
+		}
+		if (num > a[r])
+			a[r] = num;
+	}
+	int maxProduct = 0;
+	int index = 0;
+	for (int i = 1; i <= 29; ++i)
+	{
+		int currentProduct = a[i] * a[(60 - i) % 60];
+		if (currentProduct > maxProduct)
+		{
+			maxProduct = currentProduct;
+			index = i;
+		}
+	}
+	int product30 = n30 * a[30];
+	int product0 = n0 * a[0];
+	if (maxProduct < product0)
+		maxProduct = product0;
+	if (maxProduct < product30)
+		maxProduct = product30;
+	cout << a[index] << " " << a[(60 - index)%60];
+}
