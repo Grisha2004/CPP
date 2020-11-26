@@ -608,20 +608,23 @@ void ege27::task15812()
 	for (int i = 0; i < amount; ++i)
 	{
 		int num = 0;
+		cin >> num;
 		if (num % 2 == 0)
 		{
 			if (num % 3 == 0 && num > n23)
-				n23 = num;
+				n23 += 1;
 			if (num % 3 != 0 && num > n2)
-				n2 = num;
+				n2 ++;
 		}
 		else
 		{
 			if (num % 3 == 0 && num > n3)
-				n3 = num;
+				n3 ++;
 			if (num % 3 != 0 && num > n0)
-				n0 = num;
+				n0 ++;
 		}
 	}
-	int a[] = 
+	int sum = 0;
+	sum = n23 * (n23 - 1) / 2 + n23 * n0 + n23 * n3 + n2 * n0;
+	cout << sum;
 }
