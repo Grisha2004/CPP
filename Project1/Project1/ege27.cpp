@@ -749,3 +749,35 @@ void ege27::task29134()
 		maxProduct = product30;
 	cout << a[index] << " " << a[(60 - index)%60];
 }
+void ege27::task29212()
+{
+	int amount = 0;
+	cin >> amount;
+	int a[60];
+	int b[60];
+	int max0 = 0;
+	int max30 = 0;
+	for  (int i = 0; i < 60; ++i)
+	{
+		a[i] = 0;
+		b[i] = 0;
+	}
+	for (int i = 0; i < amount; ++i)
+	{
+		int n = 0;
+		cin >> n;
+		int r = n % 60;
+		if (n < 80)
+			++a[r];
+		else
+			++b[r];
+	}
+	int sum = 0;
+
+	for (int i = 1; i < 60; ++i)
+	{
+		sum += a[i] * b[i] + (b[i] * (b[i] - 1)) / 2;
+	}
+	//sum += (b[0] * (b[0] - 1)) / 2 + (b[30] * (b[30] - 1)) / 2;
+	cout << sum << "\n";
+}
