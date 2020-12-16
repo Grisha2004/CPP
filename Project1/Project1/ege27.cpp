@@ -888,11 +888,34 @@ void ege27::task6906()
 }
 void ege27::task6436()
 {
-	unsigned long long n = 0;
+	int n = 0;
 	cin >> n;
-	while (--n)
+	int a[17];
+	int b[17];
+	for (int i = 0; i < 17; ++i)
+	{
+		a[i] = 0;
+		b[i] = 0;
+	}
+	for(int i = 0; i < n; ++i)
 	{
 		auto pair = 0;
 		cin >> pair;
+		a[pair] += 1;
+		b[pair] = pair;
+	}
+	for (int i = 0; i <= 17; ++i)
+		for (int j = 0; j < 17; ++j)
+			if (a[j] < a[j + 1])
+			{
+				swap(a[j], a[j + 1]);
+				swap(b[j], b[j + 1]);
+			}
+	for (int i = 0; i < n; i++)
+	{
+		if (b[i] != 0)
+			cout << b[i] << " " << a[i] << endl;
+		else
+			break;
 	}
 }
