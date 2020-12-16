@@ -780,3 +780,119 @@ void ege27::task29212()
 	}
 	cout << sum << "\n";
 }
+void ege27::task9777()
+{
+	int t = 0;
+	cin >> t;
+	int maxX = 0;
+	int maxY = 0;
+	for (int i = 0; i < t; ++i)
+	{
+		int x, y;
+		cin >> x >> y;
+		x = abs(x);
+		y = abs(y);
+		if (x == 0 && y > maxY)
+		{
+			maxY = y;
+		}
+		if (y == 0 && x > maxX)
+		{
+			maxX = x;
+		}
+	}
+	cout << (maxX * maxY) / 2;
+}
+void ege27::task4868()
+{
+	int n;
+	cin >> n;
+	int yc = 0;
+	int xc = 0;
+	int yc2 = 0;
+	int xc2 = 0;
+	int maxX = 0;
+	int maxX2 = 0;
+	int minX = 1001;
+	int minX2 = 1001;
+	for (int i = 0; i < n; ++i)
+	{
+		int x, y;
+		cin >> x >> y;
+		y = abs(y);
+		if (y != 0 && y > yc && x > 0)
+		{
+			yc = y;
+			xc = x;
+		}
+		if (y != 0 && y > yc2 && x < 0)
+		{
+			yc2 = y;
+			xc2 = x;
+		}
+		if (y == 0 && x > 0 && x > maxX)
+		{
+			maxX = x;
+		}
+		if (y == 0 && x > 0 && x < minX)
+		{
+			minX = x;
+
+		}
+		if (y == 0 && x < 0 && abs(x) > maxX2)
+			maxX2 = abs(x);
+		if (y == 0 && x < 0 && abs(x) < minX2)
+			minX2 = abs(x);
+	}
+	float square1 = (maxX - minX) * yc / 2.0;
+	float square2 = (maxX2 - minX2) * yc2 / 2.0;
+	if (square1 > square2)
+		cout << square1;
+	else cout << square2;
+}
+void ege27::task6906()
+{
+	int n = 0;
+	cin >> n;
+	int maxX = 0;
+	int minX = 1001;
+	int maxY1 = 0;
+	int maxY2 = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		int x = 0;
+		int y = 0;
+		cin >> x >> y;
+		if (y == 0)
+		{
+			if (x < minX)
+			{
+				minX = 0 - x;
+			}
+			if (x > maxX)
+			{
+				maxX = 0 - x;
+			}
+		}
+		else
+		{
+			if (y > 0 && y > maxY1)
+				maxY1 = y;
+			else if (y < 0 && abs(y) > maxY2)
+				maxY2 = abs(y);
+		}
+	}
+	double square1 = abs((maxX - minX) * maxY1 / 2.0);
+	double square2 = abs((maxX - minX) * maxY2 / 2.0);
+	cout << square1 + square2;
+}
+void ege27::task6436()
+{
+	unsigned long long n = 0;
+	cin >> n;
+	while (--n)
+	{
+		auto pair = 0;
+		cin >> pair;
+	}
+}
