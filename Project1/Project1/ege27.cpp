@@ -919,3 +919,128 @@ void ege27::task6436()
 			break;
 	}
 }
+void ege27::task6792()
+{
+	int n = 0;
+	cin >> n;
+	int a[100];
+	for (int i = 0; i < 100; ++i)
+		a[i] = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		int k = 0;
+		int s = 0;
+		cin >> k >> s;
+		int r = s % k;
+		if (r != 0)
+			a[r] += 1;
+	}
+	int max = 0;
+	int maxIndex = 0;
+	for (int i = 0; i < 100; ++i)
+	{
+		if (a[i] >= max)
+		{
+			max = a[i];
+			maxIndex = i;
+		}
+	}
+	cout << maxIndex;
+}
+void ege27::task13423()
+{
+	int n;
+	cin >> n;
+	int a[28];
+	for (int i = 0; i < 28; ++i)
+		a[i] = 0;
+	while (n--)
+	{
+		int num;
+		cin >> num;
+		int k = 0;
+		while (num > 0)
+		{
+			k += num % 10;
+			num /= 10;
+		}
+		a[k] += 1;
+	}
+	int max = 0;
+	int maxIndex = 0;
+	for (int i = 0; i < 28; ++i)
+	{
+		if (a[i] > max)
+		{
+			maxIndex = i;
+			max = a[i];
+		}
+	}
+	cout << maxIndex;
+}
+void ege27::task7772()
+{
+	int n;
+	cin >> n;
+	int buffer[8];
+	for(int i = 0; i < 8; ++i)
+	{
+		cin >> buffer[i];
+	}
+	int max = 0;
+	int maxProd = 0;
+	for (int i = 8; i < n; ++i)
+	{
+		int r = 0;
+		cin >> r;
+		if (buffer[0] > max)
+			max = buffer[0];
+		if (r * max > maxProd)
+			maxProd = r * max;
+		for (int j = 0; j < 7; ++j)
+		{
+				buffer[j] = buffer[j + 1];
+		}
+		buffer[7] = r;
+	}
+	cout << maxProd << endl;
+}
+void ege27::task8115()
+{
+	{
+		int n;
+		cin >> n;
+		int buffer[6];
+		for (int i = 0; i < 6; ++i)
+		{
+			cin >> buffer[i];
+		}
+		int max = 1000;
+		int maxProd = 1000000;
+		bool flag = 1;
+		for (int i = 6; i < n; ++i)
+		{
+			int r = 0;
+			cin >> r;
+			if (buffer[0] < max && buffer[0] % 2 != 0)
+				max = buffer[0];
+			int curr = r * max;
+			if (curr < maxProd && r % 2 != 0)
+			{
+				maxProd = curr;
+				flag = 0;
+			}
+			for (int j = 0; j < 5; ++j)
+			{
+				buffer[j] = buffer[j + 1];
+			}
+			buffer[5] = r;
+		}
+		if (flag)
+		{
+			cout << -1;
+		}
+		else
+			cout << maxProd << endl;
+	}
+}
