@@ -25,4 +25,7 @@ namespace ege27
 	void task13423();
 	void task7772();
 	void task8115();
+	void task15995();
+	void task17391();
+	void task5375();
 }

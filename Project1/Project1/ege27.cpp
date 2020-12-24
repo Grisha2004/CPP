@@ -1044,3 +1044,97 @@ void ege27::task8115()
 			cout << maxProd << endl;
 	}
 }
+void ege27::task15995()
+{
+	int n;
+	cin >> n;
+	int buffer[5];
+	for (int &i : buffer)
+	{
+		cin >> i;
+	}
+	int ans = 0;
+	int counter = 0;
+	int counter13 = 0;
+	for (int i = 5; i < n; ++i)
+	{
+		if (buffer[0] % 13 != 0)
+			counter++;
+		else
+			counter13++;
+
+		int num;
+		cin >> num;
+		if (num % 13 == 0)
+			ans += counter + counter13;
+		else
+			ans += counter13;
+
+		for (int j = 0; j < 4; ++j)
+			buffer[j] = buffer[j + 1];
+		buffer[4] = num;
+	}
+	cout << ans << endl;
+}
+void ege27::task17391()
+{
+	int n;
+	cin >> n;
+	int buffer[6];
+	for (int i = 0; i < 6; ++i)
+		cin >> buffer[i];
+
+	int ans = 0;
+	int counter2 = 0;
+	int counter = 0;
+
+	for (int i = 6; i < n; ++i)
+	{
+		if (buffer[0] % 2 == 0)
+			counter2++;
+		else 
+			counter++;
+		int num;
+		cin >> num;
+		if (num % 2 == 0)
+			ans += counter2;
+		else
+			ans += counter;
+		for (int j = 0; j < 5; ++j)
+			buffer[j] = buffer[j + 1];
+		buffer[5] = num;
+	}
+	cout << ans;
+}
+void ege27::task5375()
+{
+	int n = 0;
+	cin >> n;
+	int zero = 0;
+	int minIndex = 0;
+	int counter = 0;
+	int min = 10000;
+	for (int i = 1; i <= n; ++i)
+	{
+		int num = 0;
+		cin >> num;
+		if (num < 0)
+		{
+			counter++;
+			if (abs(num) < min)
+			{
+				minIndex = i;
+				min = abs(num);
+			}
+		}
+		if (num == 0)
+			zero = i;
+	}
+	for (int i = 1; i <= n; ++i)
+	{
+		if (i == zero || i == minIndex && counter % 2 != 0)
+			continue;
+		else
+			cout << i << " ";
+	}
+}
