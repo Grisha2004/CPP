@@ -1138,3 +1138,25 @@ void ege27::task5375()
 			cout << i << " ";
 	}
 }
+void ege27::task7321()
+{
+	int n = 0;
+	int t = 0;
+	cin >> n;
+	cin >> t;
+	int ans = 0;
+	int aTime = 0;
+	int y = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		int a = 0;
+		int b = 0;
+		cin >> a >> b;
+		aTime += a;
+		if (aTime + t < ans + b)
+			ans = aTime + t;
+		else
+			ans += b;
+	}
+	cout << ans << endl;
+}
