@@ -13,6 +13,6 @@ using namespace olimp;
 int main()
 {
 	
-	ege27::task7321();
+	ege27::task3628();
 	return 0;
 }
