@@ -148,3 +148,57 @@ void ege24::task27850()
 		}
 	}
 }
+void ege24::task27687()
+{
+	fstream fin("24_d.txt");
+	char n = ' ';
+	char const y = 'Y';
+	int counter = 0;
+	int max = 0;
+	while (!fin.eof())
+	{
+		fin >> n;
+		if (n == y)
+		{
+			counter++;
+		}
+		else
+		{
+			if (counter > max)
+				max = counter;
+			counter = 0;
+		}
+	}
+	if (max > counter)
+		cout << max << endl;
+	else cout << counter << endl;
+}
+void ege24::task27853()
+{
+	int const l = 312614;
+	int const r = 312651;
+	for (int i = l; i <= r; ++i)
+	{
+		int a[6];
+		
+		int counter = 0;
+		for (int j = 1; j <= i; j++)
+		{
+			if (i % j == 0)
+			{
+				counter++;
+				if (counter <= 6)
+					a[counter - 1] = j;
+				else
+					break;
+			}
+		}
+		if (a[5] == i)
+		{
+			for (int l = 0; l < 6; ++l)
+				cout << a[l] << " ";
+			cout << endl;
+		}
+		
+	}
+}

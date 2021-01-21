@@ -1224,3 +1224,64 @@ void ege27::task3628()
 		max = dif;
 	cout << count << " " << max;
 }
+void ege27::task27617()
+{
+	int s = 0, n = 0;
+	while (s * s < 101) { s = s + 1; n = n + 2; }
+	cout << n << endl;
+	
+}
+void ege27::task27985()
+{
+	int n = 0;
+	cin >> n;
+	int max142 = 0;
+	int max14 = 0;
+	int max7 = 0;
+	int max72 = 0;
+	int max2 = 0;
+	int max22 = 0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		int num;
+		cin >> num;
+		if (num % 14 == 0 && num > max142)
+		{
+			if (num > max14)
+			{
+				max142 = max14;
+				max14 = num;
+			}
+			else
+			{
+				max142 = num;
+			}
+		}
+		if (num % 7 == 0 && num % 2 != 0)
+		{
+			if (num > max7)
+			{
+				max72 = max7;
+				max7 = num;
+			}
+			else if (num > max72)
+			{
+				max72 = num;
+			}
+		}
+		if (num % 2 == 0 && num % 7 != 0)
+		{
+			if (num > max2)
+			{
+				max22 = max2;
+				max2 = num;
+			}
+			else if (num > max22)
+			{
+				max22 = num;
+			}
+		}
+	}
+
+}
