@@ -1237,21 +1237,21 @@ void ege27::task27617()
 	cout << n << endl;
 	
 }
-void ege27::task27985()
+
+void solve(const string name)
 {
+	fstream fin(name);
 	int n = 0;
-	cin >> n;
+	fin >> n;
 	int max142 = 0;
 	int max14 = 0;
 	int max7 = 0;
-	int max72 = 0;
 	int max2 = 0;
-	int max22 = 0;
 
-	for (int i = 0; i < n; ++i)
+	for(int i = 0; i < n; ++i)
 	{
 		int num;
-		cin >> num;
+		fin >> num;
 		if (num % 14 == 0 && num > max142)
 		{
 			if (num > max14)
@@ -1268,26 +1268,37 @@ void ege27::task27985()
 		{
 			if (num > max7)
 			{
-				max72 = max7;
 				max7 = num;
-			}
-			else if (num > max72)
-			{
-				max72 = num;
 			}
 		}
 		if (num % 2 == 0 && num % 7 != 0)
 		{
 			if (num > max2)
 			{
-				max22 = max2;
 				max2 = num;
-			}
-			else if (num > max22)
-			{
-				max22 = num;
 			}
 		}
 	}
-
+	fin.close();
+	int a[4][2];
+	a[0][0] = max14; a[0][1] = max142;
+	a[1][0] = max7;  a[1][1] = max2;
+	a[2][0] = max14; a[2][1] = max7;
+	a[3][0] = max14; a[3][1] = max2;
+	int max = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (a[i][0] != 0 && a[i][1] != 0)
+		{
+			int curr = a[i][0] * a[0][i];
+			if (curr > max)
+				max = curr;
+		}
+	}
+	cout << max << " ";
+}
+void ege27::task27985()
+{
+	solve("27985_A.txt");
+	solve("27985_B.txt");
 }
