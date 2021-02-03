@@ -1146,7 +1146,6 @@ void ege27::task7321()
 	cin >> t;
 	int ans = 0;
 	int aTime = 0;
-	int y = 0;
 	for (int i = 0; i < n; ++i)
 	{
 		int a = 0;
@@ -1154,9 +1153,15 @@ void ege27::task7321()
 		cin >> a >> b;
 		aTime += a;
 		if (aTime + t < ans + b)
+		{
 			ans = aTime + t;
+			cout << a << endl;
+		}
 		else
+		{
 			ans += b;
+			cout << b << endl;
+		}
 	}
 	cout << ans << endl;
 }
