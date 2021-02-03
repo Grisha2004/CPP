@@ -7,4 +7,6 @@ namespace ege24
 	void task27422();
 	void task27850();
 	void task27689string();
+	void task27687();
+	void task27853();
 }

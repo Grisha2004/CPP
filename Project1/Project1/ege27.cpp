@@ -1165,3 +1165,129 @@ void ege27::task7321()
 	}
 	cout << ans << endl;
 }
+void ege27::task11363()
+{
+	int n = 0;
+	cin >> n;
+	int sum = 0;
+	int min = 10000;
+	for (int i = 0; i < n; ++i)
+	{
+		int a = 0;
+		int b = 0;
+		cin >> a >> b;
+		if (a > b)
+		{
+			sum += a;
+			if (a - b < min && (a - b) % 3 != 0)
+				min = a - b;
+		}
+		else
+		{
+			sum += b;
+			if (b - a < min && (b - a) % 3 != 0)
+				min = b - a;
+		}
+	}
+	if (sum % 3 == 0)
+	{
+		if (min == 10000)
+		{
+			cout << 0;
+			return;
+		}
+		cout << sum- min;
+		return;
+	}
+	cout << sum;
+}
+void ege27::task3628()
+{
+	int a = 0;
+	int b = 0;
+	int dif = 0;
+	int count = 0;
+	int max = 0;
+	cin >> a;
+	while (a != 0)
+	{
+		cin >> b;
+		if (a < b)
+		{
+			dif += b - a;
+		}
+		else
+		{
+			if (dif > max)
+				max = dif;
+			dif = 0;
+		}
+		a = b;
+		count++;
+	}
+
+	if (dif > max)
+		max = dif;
+	cout << count << " " << max;
+}
+void ege27::task27617()
+{
+	int s = 0, n = 0;
+	while (s * s < 101) { s = s + 1; n = n + 2; }
+	cout << n << endl;
+	
+}
+void ege27::task27985()
+{
+	int n = 0;
+	cin >> n;
+	int max142 = 0;
+	int max14 = 0;
+	int max7 = 0;
+	int max72 = 0;
+	int max2 = 0;
+	int max22 = 0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		int num;
+		cin >> num;
+		if (num % 14 == 0 && num > max142)
+		{
+			if (num > max14)
+			{
+				max142 = max14;
+				max14 = num;
+			}
+			else
+			{
+				max142 = num;
+			}
+		}
+		if (num % 7 == 0 && num % 2 != 0)
+		{
+			if (num > max7)
+			{
+				max72 = max7;
+				max7 = num;
+			}
+			else if (num > max72)
+			{
+				max72 = num;
+			}
+		}
+		if (num % 2 == 0 && num % 7 != 0)
+		{
+			if (num > max2)
+			{
+				max22 = max2;
+				max2 = num;
+			}
+			else if (num > max22)
+			{
+				max22 = num;
+			}
+		}
+	}
+
+}
